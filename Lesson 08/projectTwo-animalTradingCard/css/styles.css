@@ -11,7 +11,7 @@ body {
 	background-color: #fff;
 	margin: 40px auto;
 	border-radius: 5px;
-	border: solid #cecece 1px;
+	border: solid #e0e0e0 1px;
 	-webkit-box-shadow: 10px 10px 66px -15px rgba(153,153,153,1);
 	-moz-box-shadow: 10px 10px 66px -15px rgba(153,153,153,1);
 	box-shadow: 10px 10px 66px -15px rgba(153,153,153,1);
@@ -36,17 +36,17 @@ ul {
 }
 
 #main-image img {
-	border: solid #cecece 1px;
+	border: solid ##e9e9e9 1px;
 	border-radius: 2px;
 	max-width: 100%;
 	margin: 0;
 }
 
 .info {
-	background-color: #94a9b7;
+	background-color: #ecf0f1;
 	font-family: 'Merriweather Sans', serif;
 	font-size: 12.5px;
-	border: solid #ecf0f1 1px;
+	border: solid #e9e9e9 1px;
 	border-radius: 2px;
 	color: #222;
 	padding: 5px 10px  0 10px;
