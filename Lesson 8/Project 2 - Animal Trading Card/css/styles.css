@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Contrail+One|Merriweather+Sans');
+
+body {
+	background-color: #ecf0f1;
+	font-family: 'Contrail One',helvetica, arial;
+}
+
+.card {
+	width: 320px;
+	height: 550px;
+	background-color: #fff;
+	margin: 40px auto;
+	border-radius: 5px;
+	border: solid #cecece 1px;
+	-webkit-box-shadow: 10px 10px 66px -15px rgba(153,153,153,1);
+	-moz-box-shadow: 10px 10px 66px -15px rgba(153,153,153,1);
+	box-shadow: 10px 10px 66px -15px rgba(153,153,153,1);
+}
+
+h3 {
+	padding: 10px 10px 0 10px;
+	color: #2c3e50;
+	font-size: 40px;
+	margin: 0;
+}
+
+ul {
+	list-style-type: none;
+  padding: 0;
+  font-size: 14px;
+}
+
+#main-image {
+	margin: 0;
+	padding: 10px;
+}
+
+#main-image img {
+	border: solid #cecece 1px;
+	border-radius: 2px;
+	max-width: 100%;
+	margin: 0;
+}
+
+.info {
+	background-color: #94a9b7;
+	font-family: 'Merriweather Sans', serif;
+	font-size: 12.5px;
+	border: solid #ecf0f1 1px;
+	border-radius: 2px;
+	color: #222;
+	padding: 5px 10px  0 10px;
+	margin: 0 10px 10px 10px;
+}
+
+#interesting-fact {
+	font-style: italic;
+}
+
+.labels {
+	font-weight: 900;
+}
