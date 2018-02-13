@@ -1,0 +1,1 @@
+This lesson is just an introduction. There are no exercises here. 
