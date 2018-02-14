@@ -22,6 +22,3 @@ test.forEach(function(number, index, arrayOfNumbers) {
 });
 
 console.log(test);
-
-var test = [12, 929, 11];
-console.log(test instanceof Array);
