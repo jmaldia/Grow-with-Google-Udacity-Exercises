@@ -13,6 +13,6 @@ var laugh = function(num) {
     }
     
     return laugh;
-}
+};
 
 console.log(laugh(10));

@@ -22,4 +22,3 @@ function buildTriangle(base) {
 }
 
 console.log(buildTriangle(10));
-
