@@ -22,4 +22,4 @@ var savingsAccount = {
     }
 };
 
-console.log(savingsAccount.removeMoney(50));
+console.log(savingsAccount.printAccountSummary());
