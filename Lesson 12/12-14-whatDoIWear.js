@@ -3,9 +3,9 @@
  */
 
 // change the values of `shirtWidth`, `shirtLength`, and `shirtSleeve` to test your code
-var shirtWidth = 12;
-var shirtLength = 21;
-var shirtSleeve = 8.00;
+var shirtWidth = 29;
+var shirtLength = 35;
+var shirtSleeve = 10.71;
 
 if ((shirtWidth >= 18 && shirtWidth < 20) && (shirtLength >= 28 && shirtLength < 29) && (shirtSleeve >= 8.13 && shirtSleeve < 8.38)) {
 	console.log("S");

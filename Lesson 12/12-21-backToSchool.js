@@ -3,7 +3,7 @@
  */
 
 // change the value of `education` to test your code
-var education = "an Associate's degree";
+var education = "a Bachelor's degree";
 
 // set the value of this based on a person's education
 var salary;

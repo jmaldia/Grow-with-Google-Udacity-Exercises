@@ -1,25 +1,36 @@
-var room = "gallery";
-var suspect = "Ms. Van Cleve";
+/*
+ * Programming Quiz: Murder Mystery (3-4)
+ */
 
-var weapon = "knife";
+// change the value of `room` and `suspect` to test your code
+var room = "dining room";
+var suspect = "Mr. Parkes";
+
+var weapon = "";
 var solved = false;
 
-if (room == "dining room" && suspect == "Mr. Parkes") {
-   weapon = "knife";
-   solved = true;
-} else if (room == "the ballroom" && suspect == "Mr. Kalehoff"/* your conditional goes here */) {
-   weapon = "poison"
-   solved = true;
-} else if (room == "gallery" && suspect == "Ms. Van Cleve"/* your conditional goes here */) {
+if (room ==="ballroom") {
+   weapon = "poison";
+    if (suspect === "Mr. Kalehoff") {
+      solved = true;
+    }
+} else if (room ==="gallery") {
    weapon = "trophy";
-   solved = true;
-} else if (room == "billiards room" && suspect == "Mrs. Sparr") {
+    if (suspect === "Ms. Van Cleave") {
+      solved = true;
+    }
+} else if (room ==="billiards room") {
    weapon = "pool stick";
-   solved = true;
+    if (suspect === "Mrs. Sparr") {
+      solved = true;
+    }
 } else {
-   solved = false;
+   weapon = "knife";
+    if (suspect === "Mr. Parkes") {
+      solved = true;
+    }
 }
 
 if (solved) {
-    console.log(suspect + " did it in the " + room + " with the " + weapon + "!");
+   console.log(suspect + " did it in the " + room + " with the " + weapon + "!");
 }

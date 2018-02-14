@@ -21,6 +21,9 @@ if (checkBalance) {
 	console.log("Thank you. Have a nice day!");
 }
 
+
+// Alternative Solution
+// 
 // if (checkBalance) {
 // 	if (isActive) {
 // 		if(balance > 0) {
