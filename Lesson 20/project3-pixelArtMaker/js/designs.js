@@ -45,3 +45,8 @@ $('#button').click( function() {
     console.log(gridWidth);
 });
 
+
+$(document).ready(function() {
+	makeGrid(20, 20);
+});
+

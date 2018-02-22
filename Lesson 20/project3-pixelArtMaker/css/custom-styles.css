@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Kelly+Slab|Nixie+One');
+
+body {
+	margin: -10px 0 0 0;
+	padding: 0;
+	font-family: 'Nixie One', cursive;
+	font-weight: 100;
+}
+
+input, button {
+	padding: 7px 15px;
+	font-size: 14px;
+	border-radius: 6px
+	border: 0;
+}
+
+
+
+.header {
+	background-color: #dfe6e9;
+}
+
+.header h1 {
+	font-family: 'Kelly Slab', cursive;
+	font-size: 50px;
+	padding: 20px;
+	color: #2d3436;
+	font-weight: 10;
+}
+
+.menu {
+	background-color: #b2bec3;
+	margin: -10px 0 0 0;
+	padding: 20px;
+}
+
+.color-picker {
+	display: inline-block;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+.grid-input {
+	display: inline-block;
+	margin-right: 20px;
+	margin-left: 20px;
+	display:inline-block;
+}
+
+.color-picker h2, .grid-input h2 {
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.color-picker h2, .color-picker input, .grid-input h2, .grid-input form {
+	display:inline;
+}
+
+.design-canvas, #pixelCanvas {
+	margin-top: 40px;
+}
