@@ -12,14 +12,10 @@
     var laughs = "";
      
     for (var i = num; i > 0; i--) {
-        if (i === 1) {
-            laughs += "ha!"
-        } else {
-            laughs += "ha"
-        }
+        laughs += "ha";
     }
     
-    return laughs;
+    return laughs + "!";
  }
 
 

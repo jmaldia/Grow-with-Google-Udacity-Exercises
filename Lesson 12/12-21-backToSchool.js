@@ -33,3 +33,4 @@ switch (education) {
 }
 
 console.log("In 2015, a person with " + education + " earned an average of $" + salary.toLocaleString("en-US") + "/year.");
+

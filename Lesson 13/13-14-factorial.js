@@ -7,4 +7,6 @@ for (var i = 1; i <= 12; i++) {
     solution *= i;
 }
 
-console.log(solution);
+
+
+console.log(solution.toFixed;

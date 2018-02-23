@@ -11,6 +11,5 @@ var donuts = [
 
 // your code goes here
 donuts.forEach( function(donut, index, arrayOfDonutObjects) {
-        console.log(donut.type + " donuts cost $" + donut.cost + " each");
-    }
-);
+    console.log(donut.type + " donuts cost $" + donut.cost + " each");
+});
