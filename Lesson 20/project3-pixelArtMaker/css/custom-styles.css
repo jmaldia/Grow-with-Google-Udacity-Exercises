@@ -59,3 +59,7 @@ input, button {
 .design-canvas, #pixelCanvas {
 	margin-top: 40px;
 }
+
+.grey {
+	background-color: #bdc3c7;
+}

@@ -1,24 +1,14 @@
-// Select color input
-// Select size input
-var gridHeight = 3;//$(inputHeight);
-var gridWidth = 3;//$(inputWidth);
-var gridColor = "#000000";
+
 // When size is submitted by the user, call makeGrid()
 // Listener for the submit button
 	// $(submit).on('click', function() {
 	// 	// Task: grab input (color, width, height) from user and 
 	// });
 
-gridColor = $("#colorPicker").click( function() {
-	this.val();
-});
-
-console.log(gridColor);
 
 
 function makeGrid(inputWidth, inputHeight) {
-
-// Your code goes here!
+	// Your code goes here!
 	event.preventDefault();
 	// This function creates a grid based on the Height and Width inputs
 	var table = "";
@@ -27,26 +17,63 @@ function makeGrid(inputWidth, inputHeight) {
 		$('.row').remove();
 		table += "<tr class='row'>";
 		for (var column = 0; column < inputWidth; column++) {
-			table += "<td></td>";
+			if (column % 2 === 0 && row % 2 == 1) {
+				table += "<td class='grey'></td>";
+			} else if (column % 2 === 1 && row % 2 == 0) {
+				table += "<td class='grey'></td>";
+			} else {
+				table += "<td></td>";
+			}
 		}
 		table += "</tr>";
 	}
-	console.log(table);
 	$('#pixelCanvas').append(table);
 }
 
-$('#button').click( function() {
-
-    event.preventDefault();
-
-	gridWidth = $("#sizePicker").find("input[name='width']").val();
-	gridHeight = $("#sizePicker").find("input[name='height']").val();
-    makeGrid(gridWidth, gridHeight);
-    console.log(gridWidth);
-});
-
-
 $(document).ready(function() {
-	makeGrid(20, 20);
+	// Select color input
+	// Select size input
+	var gridHeight = 30;//$(inputHeight);
+	var gridWidth = 30;//$(inputWidth);
+	var gridColor = "#000000";
+
+	makeGrid(gridWidth, gridHeight);
+
+
+	$('#button').on('click', function() {
+    	event.preventDefault();
+
+		gridWidth = $("#sizePicker").find("input[name='width']").val();
+		gridHeight = $("#sizePicker").find("input[name='height']").val();
+	    makeGrid(gridWidth, gridHeight);
+	});
+
+
+	$('#colorPicker').on('change', function() {
+		gridColor = $(this).val();
+	});
+
+
+	$('.grey').on('mouseenter', function() {
+		$('.grey').css({'background-color': gridColor});
+	})
+
 });
+
+
+/*
+Features
+Must have:
+X Grid maker 
+- Color picker
+- Ability to draw
+Nice to have:
+- Reset button
+- Customized color picker
+- Erase option
+- Clear grid
+- Preset sizes
+- Save option
+*/
+
 
