@@ -37,15 +37,20 @@ $(document).ready(function() {
 	var gridWidth = 30;//$(inputWidth);
 	var gridColor = "#000000";
 
+	// Create initial grid
 	makeGrid(gridWidth, gridHeight);
 
-
+	// This grabs the width and height from the user and replaces the existing grid
 	$('#button').on('click', function() {
     	event.preventDefault();
 
 		gridWidth = $("#sizePicker").find("input[name='width']").val();
 		gridHeight = $("#sizePicker").find("input[name='height']").val();
-	    makeGrid(gridWidth, gridHeight);
+
+		var confirmDelete = confirm('Do you really want to clear your beautiful work?');
+		if (confirmDelete) {
+	    	makeGrid(gridWidth, gridHeight);	
+		}
 	});
 
 
@@ -65,7 +70,7 @@ $(document).ready(function() {
 Features
 Must have:
 X Grid maker 
-- Color picker
+X - Color picker
 - Ability to draw
 Nice to have:
 - Reset button
