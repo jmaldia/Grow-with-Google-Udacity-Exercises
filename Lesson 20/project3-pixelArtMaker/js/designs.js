@@ -30,6 +30,10 @@ function makeGrid(inputWidth, inputHeight) {
 	$('#pixelCanvas').append(table);
 }
 
+function reset(gridWidth, gridHeight) {
+	makeGrid(gridWidth, gridHeight);
+}
+
 $(document).ready(function() {
 	// Select color input
 	// Select size input
@@ -38,7 +42,7 @@ $(document).ready(function() {
 	var gridColor = "#000000";
 
 	// Create initial grid
-	makeGrid(gridWidth, gridHeight);
+	reset(gridWidth, gridHeight);
 
 	// This grabs the width and height from the user and replaces the existing grid
 	$('#button').on('click', function() {
@@ -53,15 +57,14 @@ $(document).ready(function() {
 		}
 	});
 
-
 	$('#colorPicker').on('change', function() {
 		gridColor = $(this).val();
 	});
 
-
-	$('.grey').on('mouseenter', function() {
-		$('.grey').css({'background-color': gridColor});
-	})
+	// Uses event delegation so that all grey classes (even ones created after the DOM loads) are affected
+	$('#pixelCanvas').on('mouseenter', 'td', function() {
+		$('td').css({'background-color': gridColor});
+	});
 
 });
 
