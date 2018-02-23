@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset=utf-8>
+
     <title>Pixel Art Maker!</title>
     
-
+    <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/custom-styles.css">
 </head>
@@ -22,11 +26,10 @@
         <div class="grid-input">
             <h2>Choose Grid Size</h2>
             <form id="sizePicker">
-                Height:
-                <input type="number" id="inputHeight" name="height" min="1" value="1">
-                Width:
-                <input type="number" id="inputWeight" name="width" min="1" value="1">
+                <input type="number" id="inputWidth" name="width" min="1" placeHolder="Width" value="30">
+                <input type="number" id="inputHeight" name="height" min="1" max="75" placeHolder="Height" value="30">
                 <button type="button" id="button">Create</button>
+                <button type="button" id="reset">Reset</button>
             </form>
         </div>
     </div>

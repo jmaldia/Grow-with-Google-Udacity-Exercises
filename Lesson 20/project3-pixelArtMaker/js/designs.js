@@ -1,28 +1,38 @@
+/*
+* Pixel Art Maker - JS File
+* Created by Jon Maldia
+* 
+* FEATURES
+* Must have:
+* DONE: Grid maker 
+* DONE: Color picker
+* DONE: Ability to draw
+* 
+* Nice to have:
+* DONE: Reset button
+* TODO: Customized color picker
+* TODO: Erase option
+* TODO: Clear grid
+* TODO: Preset sizes
+* TODO: Save option
+*/
 
 // When size is submitted by the user, call makeGrid()
-// Listener for the submit button
-	// $(submit).on('click', function() {
-	// 	// Task: grab input (color, width, height) from user and 
-	// });
-
-
-
+// This function creates a grid based on the Height and Width inputs
 function makeGrid(inputWidth, inputHeight) {
-	// Your code goes here!
 	event.preventDefault();
-	// This function creates a grid based on the Height and Width inputs
-	var table = "";
+	let table = "";
 
-	for (var row = 0; row < inputHeight; row++) {
+	for (let row = 0; row < inputHeight; row++) {
 		$('.row').remove();
 		table += "<tr class='row'>";
-		for (var column = 0; column < inputWidth; column++) {
+		for (let column = 0; column < inputWidth; column++) {
 			if (column % 2 === 0 && row % 2 == 1) {
 				table += "<td class='grey'></td>";
 			} else if (column % 2 === 1 && row % 2 == 0) {
 				table += "<td class='grey'></td>";
 			} else {
-				table += "<td></td>";
+				table += "<td class='white'></td>";
 			}
 		}
 		table += "</tr>";
@@ -30,58 +40,52 @@ function makeGrid(inputWidth, inputHeight) {
 	$('#pixelCanvas').append(table);
 }
 
+// Resets the canvas to default
 function reset(gridWidth, gridHeight) {
-	makeGrid(gridWidth, gridHeight);
+	let confirmDelete = confirm('Do you really want to clear your beautiful work?');
+	if (confirmDelete) {
+    	makeGrid(gridWidth, gridHeight);	
+	};
 }
 
 $(document).ready(function() {
-	// Select color input
-	// Select size input
-	var gridHeight = 30;//$(inputHeight);
-	var gridWidth = 30;//$(inputWidth);
-	var gridColor = "#000000";
+	// Variables for color and size input
+	let gridWidth = $("#sizePicker").find("input[name='height']").val();//$(inputWidth);
+	let gridHeight = $("#sizePicker").find("input[name='width']").val();//$(inputHeight);
+	let gridColor = "#000000";
 
 	// Create initial grid
 	reset(gridWidth, gridHeight);
 
+	// Listener for the create/submit button
 	// This grabs the width and height from the user and replaces the existing grid
 	$('#button').on('click', function() {
     	event.preventDefault();
 
-		gridWidth = $("#sizePicker").find("input[name='width']").val();
-		gridHeight = $("#sizePicker").find("input[name='height']").val();
+    	gridHeight = $("#sizePicker").find("input[name='width']").val();//$(inputHeight);
+		gridWidth = $("#sizePicker").find("input[name='height']").val();//$(inputWidth);
 
-		var confirmDelete = confirm('Do you really want to clear your beautiful work?');
-		if (confirmDelete) {
-	    	makeGrid(gridWidth, gridHeight);	
-		}
+		reset(gridWidth, gridHeight);
 	});
 
+	// Picks the color
 	$('#colorPicker').on('change', function() {
 		gridColor = $(this).val();
 	});
 
-	// Uses event delegation so that all grey classes (even ones created after the DOM loads) are affected
-	$('#pixelCanvas').on('mouseenter', 'td', function() {
-		$('td').css({'background-color': gridColor});
+	// Calls on the reset function when Reset button is clicked
+	$('#reset').on('click', function() {
+		reset(30, 30);
 	});
 
+	// Uses event delegation so that all tds classes (even ones created after the DOM loads) are affected
+	// Changes color to current color when mouse hovers on td
+	$('#pixelCanvas').on('mouseover', 'td', function() {
+		$(this).css({'background-color': gridColor});
+	});
 });
 
 
-/*
-Features
-Must have:
-X Grid maker 
-X - Color picker
-- Ability to draw
-Nice to have:
-- Reset button
-- Customized color picker
-- Erase option
-- Clear grid
-- Preset sizes
-- Save option
-*/
+
 
 
