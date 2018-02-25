@@ -20,3 +20,21 @@
 
 
 console.log(laugh(10));
+
+
+function emotions(myString, myFunc) {
+   console.log("I am " + myString + ", " + myFunc(2));
+   return "";
+}
+
+var laugh = function(count){
+}
+
+console.log(emotions("happy", function(count) {
+    var message="";
+    for (var x=1; x<=count; x++){
+    	message +="ha";
+    }
+
+    return message;
+}));
