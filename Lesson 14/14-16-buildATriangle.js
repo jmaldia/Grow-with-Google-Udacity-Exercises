@@ -11,10 +11,10 @@ function makeLine(length) {
     return line + "\n";
 }
 
-function buildTriangle(base) {
+function buildTriangle(line) {
     var triangle = "";
     
-    for (var i = 1; i <= base; i++) {
+    for (var i = 1; i <= line; i++) {
         triangle += makeLine(i);
     }
     

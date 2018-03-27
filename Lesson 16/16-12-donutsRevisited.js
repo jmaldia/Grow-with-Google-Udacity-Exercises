@@ -10,6 +10,6 @@ var donuts = [
 ];
 
 // your code goes here
-donuts.forEach( function(donut, index, arrayOfDonutObjects) {
+donuts.forEach( function(donut) {
     console.log(donut.type + " donuts cost $" + donut.cost + " each");
 });

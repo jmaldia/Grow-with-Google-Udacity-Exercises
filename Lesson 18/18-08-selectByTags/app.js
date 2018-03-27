@@ -7,4 +7,4 @@ var listElements;
 
 listElements = $("li");// your code goes here!
 
-console.log('li');
+console.log(listElements);

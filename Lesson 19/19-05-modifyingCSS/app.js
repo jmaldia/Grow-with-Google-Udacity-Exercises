@@ -7,4 +7,6 @@ You must use jQuery's css() method!
 // Start with this variable!
 var articleItems;
 
-articleItems = $('.article-list').css('font-size', '20px')// your code goes here!
+// your code goes here!
+articleItems = $('.article-item');
+articleItems.css('font-size', '20px');

@@ -9,4 +9,4 @@ var breakfast = {
     ingredients: ["eggs", "sausage", "toast", "hashbrowns", "pancakes"]
 };
 
-console.log(breakfast);
+console.log(breakfast.name);

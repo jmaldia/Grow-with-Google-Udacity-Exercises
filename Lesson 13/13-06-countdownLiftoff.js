@@ -31,5 +31,5 @@ while (num >= 0) {
             break;
     }
     
-    num -= 1;
+    num--;
 }

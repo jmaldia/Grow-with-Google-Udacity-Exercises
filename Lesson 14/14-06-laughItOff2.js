@@ -8,7 +8,7 @@
  *  - make sure that your function produces the correct results when it is called multiple times
  */
  
- function laugh(num) {
+function laugh(num) {
     var laughs = "";
      
     for (var i = num; i > 0; i--) {
@@ -16,25 +16,6 @@
     }
     
     return laughs + "!";
- }
-
+}
 
 console.log(laugh(10));
-
-
-function emotions(myString, myFunc) {
-   console.log("I am " + myString + ", " + myFunc(2));
-   return "";
-}
-
-var laugh = function(count){
-}
-
-console.log(emotions("happy", function(count) {
-    var message="";
-    for (var x=1; x<=count; x++){
-    	message +="ha";
-    }
-
-    return message;
-}));

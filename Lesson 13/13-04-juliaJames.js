@@ -20,14 +20,3 @@ while (x <= 20) {
 
     x += 1;
 }
-
-
-array = ["a", "b"];
-
-var thisObject = {
-    "a": 1,
-    "b": 2
-}
-
-
-console.log(thisObject[array[0]]);

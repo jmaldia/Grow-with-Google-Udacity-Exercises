@@ -8,6 +8,7 @@ For more on events, check the instructor notes.
 
 $('#input').on('change', function() {
     var val;
+    var h1 = $('.articles h1');
     val = $('input').val();// Your code goes here!
-    $('h1').text(val);
+    h1.text(val);
 });

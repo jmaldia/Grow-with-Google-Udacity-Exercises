@@ -3,7 +3,7 @@
  */
 
 // change the values of `balance`, `checkBalance`, and `isActive` to test your code
-var balance = -1;
+var balance = -12;
 var checkBalance = true;
 var isActive = true;
 

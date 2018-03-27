@@ -10,19 +10,23 @@
  */
 
 var num = 99;
+var bottle = " bottle of juice";
+var bottles = " bottles of juice";
+var onTheWall = " on the wall!";
+var takeOneDown = "! Take one down, pass it around... ";
 
 while (num > 0) {
     // check value of num
     // print lyrics using num
     // don't forget to check pluralization on the last line!
     // decrement num
-    if (num === 1) {
-        console.log(num + " bottle of juice on the wall! " + num + " bottle of juice! Take one down, pass it around... 0 bottles of juice on the wall!");
-    } else if (num === 2) {
-        console.log(num + " bottles of juice on the wall! " + num + " bottles of juice! Take one down, pass it around... 1 bottle of juice on the wall!");
-    } else{
-        console.log(num + " bottles of juice on the wall! " + num + " bottles of juice! Take one down, pass it around... " + (num - 1) + " bottles of juice on the wall!");
+    if (num === 2) {
+        console.log(num + bottles + onTheWall + " " + num + bottles + takeOneDown + (num - 1) + bottle + onTheWall);
+    } else if (num === 1) {
+        console.log(num + bottle + onTheWall + " " + num + bottle + takeOneDown + (num - 1) + bottles + onTheWall);
+    } else {
+        console.log(num + bottles + onTheWall + " " + num + bottles + takeOneDown + (num - 1) + bottles + onTheWall);
     }
     
-    num -= 1;
+    num--;
 }
