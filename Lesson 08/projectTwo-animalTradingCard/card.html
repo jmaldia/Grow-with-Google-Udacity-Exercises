@@ -1,31 +1,24 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Animal Trading Cards</title>
-
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<title>Building the Prototype</title>
+  	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-	<div class="card">
-		<!-- your favorite animal's name goes here -->
-		<h3>Russian Blue</h3>
-		<!-- your favorite animal's image goes here -->
-		<div id="main-image">
-			<img src="http://jonmaldia.com/img/udacity/russian-blue.jpg" alt="Russian Blue">
-		</div>		
-		<div class="info">
-			<!-- your favorite animal's interesting fact goes here -->
+	<div id="container">
+		<h1>Russian Blue</h1>
+		<!-- photo credit: wikipedia.org, image taken by Ritik -->
+		<img id="main-image" src="http://jonmaldia.com/img/udacity/russian-blue.jpg" alt="Russian Blue">
+		<div id="card" class="animal-info">
 			<p id="interesting-fact">One can draw patterns in the dense coat that will stay until one smoothes them out again</p>
-			<ul>
-				<!-- your favorite animal's list items go here -->
+			<ul id="facts">
 				<li><span class="labels">Scientific Name</span>: Felis catus</li>
 				<li><span class="labels">Average Weight</span>: 8 - 16 pounds</li>
 				<li><span class="labels">Average Lifespan</span>: 18 years</li>
 				<li><span class="labels">Habitat</span>: Typically indoors</li>
 			</ul>
-			<!-- your favorite animal's description goes here -->
-			<p>The Russian Blue is a cat breed that comes in colors varying from a light shimmering silver to a darker, slate grey. They develop close bonds with their owners and are sought out as pets due to their personalities, beauty and coat.</p>
+			<p id="summary">The Russian Blue is a cat breed that comes in colors varying from a light shimmering silver to a darker, slate grey. They develop close bonds with their owners and are sought out as pets due to their personalities, beauty and coat.</p>
 		</div>
 	</div>
 </body>

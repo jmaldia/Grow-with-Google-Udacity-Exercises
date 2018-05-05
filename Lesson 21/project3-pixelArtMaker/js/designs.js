@@ -10,30 +10,36 @@
 * 
 * Nice to have:
 * DONE: Reset button
-* TODO: Customized color picker
-* TODO: Erase option
-* TODO: Clear grid
-* TODO: Preset sizes
+* DONE: Customized color picker
+* DONE: Erase option
+* DONE: Clear grid
+* DONE: Preset sizes
 * TODO: Save option
 */
 
 // jQuery variables
 const sizePicker = $("#sizePicker");
+const currentColor = $('.current-color');
+const small = $("#small");
+const medium = $("#medium");
+const large = $("#large");
 const pixelCanvas = $('#pixelCanvas');
+const savedImageBox = $('.saved-image-box');
+const saveButton = $('#save-button');
+let getCanvas = "";
 
 // When size is submitted by the user, call makeGrid()
 // This function creates a grid based on the Height and Width inputs
 function makeGrid(inputWidth, inputHeight) {
-	event.preventDefault();
 	let table = "";
 
 	for (let row = 0; row < inputHeight; row++) {
 		$('.row').remove();
 		table += "<tr class='row'>";
 		for (let column = 0; column < inputWidth; column++) {
-			if (column % 2 === 0 && row % 2 == 1) {
+			if (column % 2 === 0 && row % 2 === 1) {
 				table += "<td class='grey'></td>";
-			} else if (column % 2 === 1 && row % 2 == 0) {
+			} else if (column % 2 === 1 && row % 2 === 0) {
 				table += "<td class='grey'></td>";
 			} else {
 				table += "<td class='white'></td>";
@@ -44,49 +50,150 @@ function makeGrid(inputWidth, inputHeight) {
 	pixelCanvas.append(table);
 }
 
-// Resets the canvas to default
-function reset(gridWidth, gridHeight) {
-	let confirmDelete = confirm('Do you really want to clear your beautiful work?');
-	if (confirmDelete) {
-    	makeGrid(gridWidth, gridHeight);	
-	};
+// Resets the canvas to default - Modal for confirm
+function reset(gridWidth, gridHeight){
+	$( "#dialog-confirm" ).dialog({
+		resizable: false,
+		height: "auto",
+		width: 400,
+		modal: true,
+		buttons: {
+			"Reset Canvas": function() {
+			  $( this ).dialog( "close" );
+			  makeGrid(gridWidth, gridHeight);
+			},
+			Cancel: function() {
+			  $( this ).dialog( "close" );
+			}
+		}
+	});
 }
+
+
+// Download to image
+function saveImage() {
+	html2canvas(pixelCanvas, {
+		onrendered: function (canvas) {
+			// Creates a new link for download
+			let imageURI = canvas.toDataURL();
+			let myLink = document.createElement('a');
+			myLink.download = "yourart.png";
+			myLink.href = imageURI;
+			document.body.appendChild(myLink);
+			myLink.click();
+		}
+	});
+}
+
+
 
 $(document).ready(function() {
 	// Variables for color and size input
-	let gridWidth = sizePicker.find("input[name='height']").val();//$(inputWidth);
-	let gridHeight = sizePicker.find("input[name='width']").val();//$(inputHeight);
-	let gridColor = "#7ed6df";
+	let gridWidth = 15;
+	let gridHeight = 15;
+	let gridColor = "#000000";
 
 	// Create initial grid
 	makeGrid(gridWidth, gridHeight);
 
 	// Listener for the create/submit button
 	// This grabs the width and height from the user and replaces the existing grid
-	$('#button').on('click', function() {
-    	event.preventDefault();
+	$('#button-small').on('click', function() {
+		event.preventDefault();
+		gridHeight = small.find("input[name='width']").val();
+		gridWidth = small.find("input[name='height']").val();
 
-    	gridHeight = sizePicker.find("input[name='width']").val();//$(inputHeight);
+		reset(gridWidth, gridHeight);
+	});
+
+	$('#button-medium').on('click', function() {
+		event.preventDefault();
+		gridHeight = medium.find("input[name='width']").val();
+		gridWidth = medium.find("input[name='height']").val();
+
+		reset(gridWidth, gridHeight);
+	});
+
+	$('#button-large').on('click', function() {
+		event.preventDefault();
+		gridHeight = large.find("input[name='width']").val();
+		gridWidth = large.find("input[name='height']").val();
+
+		reset(gridWidth, gridHeight);
+	});
+
+	$('#button').on('click', function() {
+		event.preventDefault();
+		gridHeight = sizePicker.find("input[name='width']").val();//$(inputHeight);
 		gridWidth = sizePicker.find("input[name='height']").val();//$(inputWidth);
 
 		reset(gridWidth, gridHeight);
 	});
 
+
+
+
 	// Picks the color
-	$('#colorPicker').on('change', function() {
+	$('.color').on('focus', function() {
 		gridColor = $(this).val();
+		$(this).fadeIn(100).fadeOut(100).fadeIn(100); // Makes the box flash
+
+		currentColor.css({'background-color': gridColor});
 	});
 
 	// Calls on the reset function when Reset button is clicked
 	$('#reset').on('click', function() {
-		reset(30, 30);
+		reset(15, 15);
 	});
 
 	// Uses event delegation so that all tds classes (even ones created after the DOM loads) are affected
 	// Changes color to current color when mouse hovers on td
 	pixelCanvas.on('mousedown mouseover', 'td', function(event) {
-		if(event.buttons == 1){
-			$(this).css({'background-color': gridColor});
+		if(event.buttons == 1) {
+			// Checks if cell is colored
+			if ($(this).hasClass('white') && $(this).hasClass('colored') && $(this).css('background-color') != 'rgb(255, 255, 255)') {
+				$(this).css({'background-color': gridColor}).removeClass('colored');
+			} else if ($(this).hasClass('grey') && $(this).hasClass('colored') && $(this).css('background-color') != 'rgb(220, 221, 225)') {
+				$(this).css({'background-color': gridColor}).removeClass('colored');
+			} else if ($(this).hasClass('white') && $(this).css('background-color') != 'rgb(255, 255, 255)') {
+				$(this).css({'background-color': '#ffffff'});
+			} else if ($(this).hasClass('grey') && $(this).css('background-color') != 'rgb(220, 221, 225)') {
+				$(this).css({'background-color': '#dcdde1'});
+			} else {
+				$(this).css({'background-color': gridColor}).addClass('colored');	
+			}
 		}
 	});
+
+
+	// Erase Grid
+	pixelCanvas.delegate('td', 'eraseWork', function() {
+		if ($(this).hasClass('white')) {
+			$(this).css({'background-color': '#ffffff'});
+		} else if ($(this).hasClass('grey')) {
+			$(this).css({'background-color': '#dcdde1'});
+		}
+	});
+
+	$('#erase').click(function() {
+		$('td').trigger('eraseWork');
+	});
+
+
+	$('.range-colors').on('change', function(){
+		let red = $('#slider-red').val();
+		let green = $('#slider-green').val();
+		let blue = $('#slider-blue').val();
+		gridColor = `rgb(${red}, ${green}, ${blue})`
+
+		$(this).find('.range-slider-value').html($(this).find('.range-slider-range').val());
+
+		currentColor.css({'background-color': `${gridColor}`});
+
+	});
+
+
+
+
+
 });

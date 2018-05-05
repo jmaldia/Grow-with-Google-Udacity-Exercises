@@ -13,11 +13,7 @@ function emotions(myString, myFunc) {
 emotions("happy", function laugh(num) {
     var laughter = "";
     for (var i = 1; i <= num; i++) {
-        if (i === num) {
-            laughter += "ha!";
-        } else {
-            laughter += "ha";
-        }
+        laughter += "ha";
     }
-    return laughter;
+    return laughter + "!";
 });

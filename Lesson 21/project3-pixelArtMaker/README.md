@@ -1,16 +1,12 @@
-# Pixel Art Maker Project
+# pixel-art-maker
+This is a final project for Grow with Google - Udacity Phase 1 Front End Scholarship. It's a Pixel Art Maker that allows you to create art work using a grid. 
 
-## Table of Contents
+This project was originally in this repo: [https://github.com/jmaldia/Grow-with-Google-Udacity-Exercises](https://github.com/jmaldia/Grow-with-Google-Udacity-Exercises). It was then placed in it's own repo which is this. 
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+For previous commits on this project, please go here: 
 
-## Instructions
+[https://github.com/jmaldia/Grow-with-Google-Udacity-Exercises/commits/master](https://github.com/jmaldia/Grow-with-Google-Udacity-Exercises/commits/master)
 
-To get started, open `designs.js` and start building out the app's functionality.
+You can find a live preview here: 
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+[https://codepen.io/jonmaldia/full/bLjpBN/](https://codepen.io/jonmaldia/full/bLjpBN/)
